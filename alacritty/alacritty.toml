@@ -1,104 +1,162 @@
-## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
-##
-## Configuration for Alacritty, the GPU enhanced terminal emulator.
-## It's a very basic and simple config file, for full configuration, Run `man 5 alacritty`
+[colors]
+draw_bold_text_with_bright_colors = true
 
-## GENERAL --------------------------------------------------------
+[colors.bright]
+black =  '#928374'
+red =    '#fb4934'
+green =  '#b8bb26'
+yellow = '#fabd2f'
+blue =   '#83a598'
+magenta ='#d3869b'
+cyan =   '#8ec07c'
+white =  '#ebdbb2'
 
-## Import additional configuration files.
-import = ["~/.config/bspwm/alacritty/colors.toml", "~/.config/bspwm/alacritty/fonts.toml"]
 
-## You can set shell.program to the path of your favorite shell, e.g. /bin/zsh.
-## Entries in shell.args are passed as arguments to the shell.
-#shell = { program = "/bin/zsh", args = ["--login"] }
+[colors.cursor]
+cursor = "#528bff"
+text = "CellBackground"
 
-## Directory the shell is started in. When this is unset, or "None",
-## the working directory of the parent process will be used.
-#working_directory = "None"
+[colors.normal]
+black =  '#282828'
+red =    '#cc241d'
+green =  '#98971a'
+yellow = '#d79921'
+blue =   '#458588'
+magenta ='#b16286'
+cyan =   '#689d6a'
+white =  '#a89984'
 
-## Live config reload
-live_config_reload = true
 
-## Offer IPC using alacritty msg
-ipc_socket = true
+[colors.primary]
+background ='#282828'
+foreground ='#ebdbb2'
 
-## ENVIRONMENT ----------------------------------------------------
 
-## All key-value pairs in the [env] section will be added as environment variables for any process spawned
-## by Alacritty, including its shell. Some entries may override variables set by alacritty itself.
+[colors.selection]
+background = "#3e4451"
+text = "CellForeground"
+
 [env]
-TERM = "alacritty"
-WINIT_X11_SCALE_FACTOR = "1.0"
+TERM = "xterm-256color"
 
-## WINDOW ---------------------------------------------------------
-[window]
-position = "None"
-dynamic_padding = true
-decorations = "full"
-opacity = 1.0
-blur = false
-startup_mode = "Windowed"
-dynamic_title = true
-class = { instance = "Alacritty", general = "Alacritty" }
-decorations_theme_variant = "None"
+[font]
+size = 12.0
 
-## Number of lines/columns (not pixels) in the terminal.
-[window.dimensions]
-columns = 100
-lines = 30
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
 
-## Blank space added around the window in pixels.
-[window.padding]
-x = 10
-y = 10
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
 
-## SCROLLING ------------------------------------------------------
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 1
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "PasteSelection"
+key = "Insert"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Paste"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Copy"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ClearLogNotice"
+key = "L"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\f"
+key = "L"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mode = "~Alt"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mode = "~Alt"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "Home"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "End"
+mode = "~Alt"
+mods = "Shift"
 [scrolling]
-history = 10000
-multiplier = 3
+history = 5000
 
-## BELL -----------------------------------------------------------
-[bell]
-animation = "Linear"
-duration = 20
-command = { program = "paplay", args = ["/usr/share/sounds/freedesktop/stereo/dialog-error.oga"] }
+[window]
+dynamic_padding = false
+opacity = 1.0
+title = "Alacritty"
 
-## SELECTION ------------------------------------------------------
-[selection]
-save_to_clipboard = true
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
 
-## CURSOR ---------------------------------------------------------
-[cursor]
-vi_mode_style = "None"
-blink_interval = 750
-blink_timeout = 5
-unfocused_hollow = false
-thickness = 0.15
-
-[cursor.style]
-shape = "Block"
-blinking = "On"
-
-## MOUSE ----------------------------------------------------------
-[mouse]
-hide_when_typing = false
-
-## HINTS ----------------------------------------------------------
-[[hints.enabled]]
-command         = "xdg-open"
-hyperlinks      = true
-post_processing = true
-persist         = false
-mouse.enabled   = true
-binding         = { key = "U", mods = "Control|Shift" }
-regex           = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩‘]+"
-
-## DEBUG ----------------------------------------------------------
-[debug]
-render_timer = false
-persistent_logging = false
-log_level = "Warn"
-renderer = "None"
-print_events = false
-highlight_damage = false
-prefer_egl = false
+[window.padding]
+x = 6
+y = 6
