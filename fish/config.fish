@@ -1,11 +1,11 @@
 alias vim='nvim'
 alias vi='nvim'
-alias yap='paru -Syu --noconfirm'
+alias yap='sudo pacman -Syu --noconfirm'
 
 alias fix-key='sudo rm /var/lib/pacman/sync/* && sudo rm -rf /etc/pacman.d/gnupg/* && sudo pacman-key --init && sudo pacman-key --populate && sudo pacman -Sy --noconfirm archlinux-keyring && sudo pacman --noconfirm -Su'
-alias update-arch='paru'
+alias update-arch='sudo pacman'
 alias update-mirrors='sudo reflector --verbose --score 100 --latest 20 --fastest 5 --sort rate --save /etc/pacman.d/mirrorlist && sudo pacman -Syyu'
-alias clean-arch='paru -Sc && paru -c'
+alias clean-arch='sudo pacman -Sc && sudo pacman -c'
 
 # Changing "ls" to "eza"
 alias l='eza -al --color=always --group-directories-first' # my preferred listing
@@ -28,10 +28,11 @@ alias stat='git status'  # 'status' is protected name so using 'stat' instead
 alias tag='git tag'
 alias newtag='git tag -a'
 
-alias yoo='paru -S --needed --noconfirm'
-alias noo='paru -Rns'
+alias yoo='sudo pacman -S --needed --noconfirm'
+alias noo='sudo pacman -Rns'
 alias myclone='git clone '
 
 if test -f /home/muturi/.autojump/share/autojump/autojump.fish; . /home/muturi/.autojump/share/autojump/autojump.fish; end
 
 starship init fish | source
+zoxide init fish | source
