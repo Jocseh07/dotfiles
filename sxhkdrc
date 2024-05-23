@@ -1,127 +1,131 @@
-## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
-##
-## Keybindings config for Archcraft's BSPWM
-
-##---------- Keybindings for bspwm ----------##
-
-# terminal emulator
-super + Return
-  kitty
-
-# firefox
-super + c
-  firefox
+#################################################################
+# KEYBOARD BINDINGS FOR ANY TWM
+#################################################################
 
 # thunar
 super + e
-  thunar
+    thunar
 
-# Rofi App Launcher
+# alacritty
+super + Return
+    alacritty
+
+#################################################################
+# SUPER + FUNCTION KEYS
+#################################################################
+
+
+#################################################################
+# SUPER + SHIFT KEYS
+#################################################################
+
+#rofi large
 super + d
-  rofi_launcher
+    rofi -no-lazy-grab -show drun -modi drun -font "JetBrainsMono Bold 16" -m -1 -fullscreen -padding 300 -hide-scrollbar
 
-# Rofi Menus/Applets
-super + {b,m,n,r,s,t,w,x}
-  {rofi_bluetooth,rofi_music,nmd,rofi_asroot,rofi_screenshot,rofi_themes,rofi_windows,rofi_powermenu}
-
-# Lockscreen
-ctrl + alt + l
-  betterlockscreen --lock
-
-##---------- System Keys ----------##
-
-# Brighness control
-XF86MonBrightness{Up,Down}
-  bspbrightness{ --inc, --dec}
-
-# Speaker Volume control
-XF86Audio{RaiseVolume,LowerVolume}
-  bspvolume{ --inc, --dec}
-
-# Mic Volume control
-XF86Audio{Mute,MicMute}
-  bspvolume{ --toggle, --toggle-mic}
-
-##---------- Bspwm ----------##
-
-# Hide/Unhide Window
-super + h
-  bspwinmask
-
-# Close App
-super + {_,shift + }q
-  bspc node -{c,k}
-
-# kill window
-ctrl + alt + Escape
-  xkill
-
-# Quit/Restart bspwm
-ctrl + shift + {q,r}
-  bspc {quit,wm -r}
-
-# Reload Keybindings
+#reload sxhkd:
 super + Escape
-  pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd
 
-# Switch workspace
-ctrl + alt + {Left,Right}
-  bspc desktop -f {prev.local,next.local}
 
-# Switch workspace or Send focused Node to another workspace
-super + {_,shift + }{1-8}
-  bspc {desktop -f,node -d} '^{1-8}' '--follow'
+#################################################################
+# CONTROL + ALT KEYS
+#################################################################
 
-# Send focused Node to workspace directionally
-super + ctrl + shift + {Left,Right}
-  bspc node -d {prev,next} '--follow'
 
-# Change focus of the Node or Swap Nodes
-super + {_,shift + }{Left,Down,Up,Right}
-  bspc node -{f,s} {west,south,north,east}
+#Rofi theme selector
+ctrl + alt + r
+  rofi-theme-selector
 
-# Move floating windows
-super + alt + shift + {Left,Down,Up,Right}
-  bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# Expanding windows
-super + control + {Left,Right,Up,Down}
-  bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
 
-# Shrinking windows
-super + alt + {Left,Right,Up,Down}
-  bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
+#################################################################
+# ALT + ... KEYS
+#################################################################
 
-# Preselect the ratio
-super + ctrl + {1-9}
-bspc node -o 0.{1-9}
 
-# Toggle Layout (Tiled/Monocle)
-super + l
-  bspc desktop -l next
+#################################################################
+#VARIETY KEYS WITH PYWAL
+#################################################################
+#################################################################
+# CONTROL + SHIFT KEYS
+#################################################################
 
-# Toggle Fullscreen
-super + f
-  bspc node -t "~"fullscreen
+#################################################################
+#     SCREENSHOTS
+#################################################################
 
-# Toggle beetwen floating & tiled
-super + shift + t
-  bspc node -t "~"{floating,tiled}
+#################################################################
+#     FUNCTION KEYS
+#################################################################
 
-# Pseudo Tiled & tiled mode
-super + shift + space
-  bspc node -t "~"{pseudo_tiled,tiled}
+#################################################################
+#     MULTIMEDIA KEYS
+#################################################################
 
-# Set the node flags
-super + ctrl + {m,x,y,z}
-  bspc node -g {marked,locked,sticky,private}
+#Raises volume
+XF86AudioRaiseVolume
+    amixer -D pulse set Master 10%+
 
-# Change focus to next window, including floating window
-alt + {_,shift + }Tab
-  bspc node -f {next.local,prev.local}
+#Lowers volume
+XF86AudioLowerVolume
+    amixer -D pulse set Master 10%-
 
-# Switch to last opened workspace
-super + {Tab,grave}
-  bspc {node,desktop} -f last
+#Mute
+XF86AudioMute
+    amixer -D pulse set Master 1+ toggle
 
-##---------- EOF ----------##
+#Playerctl works for Pragha, Spotify and others
+#Delete the line for playerctl if you want to use mpc
+#and replace it with the corresponding code
+#mpc works for e.g.ncmpcpp
+#mpc toggle
+#mpc next
+#mpc prev
+#mpc stop
+
+#PLAY
+XF86AudioPlay
+    playerctl play-pause
+
+#Next
+XF86AudioNext
+    playerctl next
+
+#previous
+XF86AudioPrev
+    playerctl previous
+
+#Stop
+XF86AudioStop
+    playerctl stop
+
+#Brightness up
+super + shift + Up
+    brightnessctl set 5%+
+
+#Brightness down
+super + shift + Down
+    brightnessctl set 5%-
+
+#Brightness up
+XF86MonBrightnessUp
+    brightnessctl set 5%+
+
+#Brightness down
+XF86MonBrightnessDown
+    brightnessctl set 5%-
+
+#################################################################
+#################################################################
+##################   DESKTOP SPECIFIC    ########################
+#################################################################
+#################################################################
+
+#################################################################
+# CTRL + ALT KEYS
+#################################################################
+
+#Picom Toggle
+ctrl + alt + o
+    ~/.config/arco-chadwm/scripts/picom-toggle.sh
