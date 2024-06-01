@@ -1,0 +1,307 @@
+#################################################################
+# KEYBOARD BINDINGS FOR ANY TWM
+#################################################################
+
+#################################################################
+# SUPER + FUNCTION KEYS
+#################################################################
+
+#################################################################
+# SUPER + ... KEYS
+#################################################################
+
+#archlinux-logout
+super + x
+    archlinux-logout
+
+#powermenu
+super + shift + x
+    arcolinux-powermenu
+
+# #Rofi theme selector
+# super + shift + r
+#     rofi-theme-selector
+
+#alacritty
+super + Return
+    alacritty
+
+#rofi
+super + d
+    rofi -show drun
+
+#reload sxhkd:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+
+#################################################################
+# SUPER + SHIFT KEYS
+#################################################################
+
+#File-Manager
+super + e
+	thunar
+
+
+#################################################################
+# CONTROL + ALT KEYS
+#################################################################
+
+#################################################################
+# ALT + ... KEYS
+#################################################################
+
+
+#################################################################
+#VARIETY KEYS WITH PYWAL
+#################################################################
+
+
+#################################################################
+# CONTROL + SHIFT KEYS
+#################################################################
+
+
+#################################################################
+#     SCREENSHOTS
+#################################################################
+
+
+#################################################################
+#     FUNCTION KEYS
+#################################################################
+
+#################################################################
+#     MULTIMEDIA KEYS
+#################################################################
+
+#Raises volume
+XF86AudioRaiseVolume
+    amixer -D pulse set Master 10%+
+
+#Lowers volume
+XF86AudioLowerVolume
+    amixer -D pulse set Master 10%-
+
+#Mute
+XF86AudioMute
+    amixer -D pulse set Master 1+ toggle
+
+#Playerctl works for Pragha, Spotify and others
+#Delete the line for playerctl if you want to use mpc
+#and replace it with the corresponding code
+#mpc works for e.g.ncmpcpp
+#mpc toggle
+#mpc next
+#mpc prev
+#mpc stop
+
+#PLAY
+XF86AudioPlay
+    playerctl play-pause
+
+#Next
+XF86AudioNext
+    playerctl next
+
+#previous
+XF86AudioPrev
+    playerctl previous
+
+#Stop
+XF86AudioStop
+    playerctl stop
+
+# Brighness control
+XF86MonBrightnessDown
+	brightnessctl set 5%-
+	
+# Brighness control
+XF86MonBrightnessUp
+	brightnessctl set 5%+
+
+#########################
+#        POLYBAR        #
+#########################
+
+# #Hide polybar
+# super + y
+#     polybar-msg cmd toggle
+
+#################################################################
+#################################################################
+##################   DESKTOP SPECIFIC    ########################
+#################################################################
+#################################################################
+
+#################################################################
+# CTRL + ALT KEYS
+#################################################################
+
+# #Picom Toggle
+# ctrl + alt + o
+#     ~/.config/bspwm/scripts/picom-toggle.sh
+
+#################################################################
+# SUPER + KEYS
+#################################################################
+
+#Toggle fullscreen of window
+super + f
+	bspc node --state \~fullscreen
+
+# # Toggle pseudo tiling of window
+# super + p
+# 	bspc node --state \~pseudo_tiled
+
+#kill
+super + q
+	bspc node -c
+
+#################################################################
+# SUPER KEYS
+#################################################################
+
+#Focus selected desktop
+super + Tab
+	bspc desktop -f '^{1-9,10}'
+
+# # Increase/decrease window gap on focused desktop
+# super + bracket{left,right}
+# 	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {-,+} 5 ))
+
+# set the window state
+super + space
+	bspc node -t {tiled,floating}
+
+# Move focus to other monitor
+super + BackSpace
+		bspc monitor -f next
+
+#################################################################
+# SUPER + ALT KEYS
+#################################################################
+
+
+#################################################################
+# SUPER + CONTROL KEYS
+#################################################################
+
+
+
+#################################################################
+# SUPER + SHIFT KEYS
+#################################################################
+
+
+#Reload bspwm
+super + shift + r
+	~/.config/bspwm/bspwmrc
+
+# #kill
+# super + shift + q
+# 	bspc node -c
+
+#Logout
+#super + shift + x
+#	bspc quit
+
+# Focus/swap windows by direction
+super + {_,shift + }{h,j,k,l}
+	bspc node --{focus,swap} {west,south,north,east}
+
+# Flip layout vertically/horizontally
+super + {_,shift + }a
+	bspc node @/ --flip {vertical,horizontal}
+
+# # Move focused window to other monitor
+# super + shift + Left
+# 	bspc node -m next --follow
+
+# # Move focused window to other monitor
+# super + shift + Right
+# 		bspc node -m next --follow
+
+# # Move focused window to other monitor
+# super + shift + Up
+# 	bspc node -m next --follow
+
+# # Move focused window to other monitor
+# super + shift + Down
+# 		bspc node -m next --follow
+
+#################################################################
+# SUPER + CONTROL KEYS
+#################################################################
+
+# # Focus/swap windows by direction
+# super + ctrl + {Left,Down,Up,Right}
+# 	bspc node --{focus} {west,south,north,east}
+
+# # Contract tiled space
+# super + alt + {h,j,k,l}
+# 	bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
+
+
+
+
+# #################################################################
+# # ALT KEYS
+# #################################################################
+
+
+
+# #################################################################
+# # ALT + SHIFT KEYS
+# #################################################################
+
+# # Expand tiled space
+# super + ctrl + {h,j,k,l}
+# 	bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
+
+#################################################################
+# CTRL + ALT KEYS
+#################################################################
+
+#################################################################
+#################################################################
+##################   AZERTY/QWERTY/ ... KEYBOARD#################
+#################################################################
+#################################################################
+
+#Switch here between qwerty and azerty or make new one
+#Focus selected desktop FOR QWERTY KEYBOARDS
+super + {1-9,0}
+	bspc desktop -f '^{1-9,10}'
+
+#Focus selected desktop	FOR BELGIAN AZERTY KEYBOARDS
+#super + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
+#    bspc desktop -f '^{1-9,10}'
+
+#Focus selected desktop	FOR FRENCH AZERTY KEYBOARDS
+#super + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
+#    bspc desktop -f '^{1-9,10}'
+
+#################################################################
+
+#Switch here between qwerty and azerty or make new one
+#Move window to selected desktop FOR QWERTY KEYBOARDS
+super + shift + {1-9,0}
+    id=$(bspc query -N -n); bspc node -d ^{1-9,10}; bspc node -f ${id}}
+
+#Move window to selected desktop FOR AZERTY KEYBOARDS
+#super + shift + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
+#    id=$(bspc query -N -n); bspc node -d ^{1-9,10}; bspc node -f ${id}}
+
+# swap the current node and the biggest window
+super + b
+	bspc node -s biggest.window
+
+# Expanding windows
+super + control + {h,l,k,j}
+	bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
+	
+# Shrinking windows
+super + alt + {h,l,k,j}
+	bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
