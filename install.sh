@@ -42,6 +42,7 @@ create_symlink() {
       printf "Skipping %s\n" "$target_dir"
       return 1
     fi
+    rm -rf "$target_dir"
     ln -sf "$source_dir" "$target_dir"
   elif [ -f "$target_dir" ]; then
     # Alert with yellow color
@@ -50,6 +51,7 @@ create_symlink() {
       printf "Skipping %s\n" "$target_dir"
       return 1
     fi
+    rm -rf "$target_dir"
     ln -sf "$source_dir" "$target_dir"
   elif [ -d "$target_dir" ]; then
     # Alert with yellow color
@@ -58,6 +60,7 @@ create_symlink() {
       printf "Skipping %s\n" "$target_dir"
       return 1
     fi
+    rm -rf "$target_dir"
     ln -sf "$source_dir" "$target_dir"
   else
     printf "Creating new symbolic link to %s\n" "$target_dir"
@@ -73,5 +76,6 @@ create_symlink "bspwm" ".config/bspwm"
 create_symlink "nvim" ".config/nvim"
 create_symlink "polybar" ".config/polybar"
 create_symlink "redshift" ".config/redshift"
+create_symlink "starship.toml" ".config/starship.toml"
 create_symlink "rofi" ".config/rofi"
-create_symlink ".zshrc" ".config/.zshrc"
+create_symlink ".zshrc" ".zshrc"
