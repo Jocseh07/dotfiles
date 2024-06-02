@@ -79,3 +79,6 @@ create_symlink "redshift" ".config/redshift"
 create_symlink "starship.toml" ".config/starship.toml"
 create_symlink "rofi" ".config/rofi"
 create_symlink ".zshrc" ".zshrc"
+
+# Finish marker with green color
+printf "\e[32mSetup complete!\e[0m\n"

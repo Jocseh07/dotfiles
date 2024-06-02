@@ -26,6 +26,16 @@ super + shift + x
 super + Return
     alacritty
 
+# hide window
+super + y
+	bspwinmask
+	# bspc node focused -g hidden=on
+
+# unhide window
+super + r
+	bspwinmask
+
+
 #rofi
 super + d
     rofi -show drun
