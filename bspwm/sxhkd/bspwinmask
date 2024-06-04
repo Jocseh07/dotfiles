@@ -2,11 +2,13 @@
 
 ## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
 
-masked=$(bspc query -N -n .hidden -d focused)
+bspc node $(bspc query -N -n .hidden -d focused | tail -1) --flag hidden=off
 
-if [ -z "$masked" ]; then
-	bspc node focused -g hidden=on
-else
-	bspc node "$masked" -g hidden=off
-fi
-# bspc node "$masked" -g hidden=off
+# masked=$(bspc query -N -n .hidden -d focused)
+
+# if [ -z "$masked" ]; then
+# 	bspc node focused -g hidden=on
+# else
+# 	bspc node "$masked" -g hidden=off
+# fi
+# # bspc node "$masked" -g hidden=off

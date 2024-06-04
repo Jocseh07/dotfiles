@@ -28,12 +28,15 @@ super + Return
 
 # hide window
 super + y
-	bspwinmask
+	bspc node --flag hidden=on
 	# bspc node focused -g hidden=on
 
 # unhide window
 super + r
-	bspwinmask
+	bspc node $(bspc query -N -n .hidden -d focused | tail -1) --flag hidden=off
+	# ~/github/dotfiles/bspwm/sxhkd/bspwinmask
+	# bspc node focused -g hidden=on
+
 
 
 #rofi
