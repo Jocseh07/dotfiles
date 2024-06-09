@@ -103,7 +103,7 @@ alias noo='sudo pacman -Rns'
 
 # Shell integrations
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd j zsh)"
+eval "$(zoxide init --cmd j fish)"
 
 alias web='cd /var/www/html'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -309,13 +309,6 @@ lazyg() {
 # Created by `pipx` on 2024-05-25 12:51:44
 export PATH="$PATH:/home/karanja/.local/bin"
 
-# pnpm
-export PNPM_HOME="/home/karanja/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 
 
 source /usr/share/nvm/init-nvm.sh
@@ -325,3 +318,11 @@ source /usr/share/nvm/nvm.sh
 source /usr/share/nvm/bash_completion
 source /usr/share/nvm/install-nvm-exec
 
+
+# pnpm
+export PNPM_HOME="/home/muturi/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
