@@ -14,6 +14,8 @@ alias ls='eza -l --color=always --group-directories-first'  # long format
 alias lt='eza -aT --color=always --group-directories-first' # tree listing
 alias l.='eza -a | egrep "^\."'
 
+alias more='git add . && git commit -m "more changes" && git push'
+
 # git
 alias addup='git add -u'
 alias addall='git add .'
@@ -36,3 +38,74 @@ if test -f /home/muturi/.autojump/share/autojump/autojump.fish; . /home/muturi/.
 
 starship init fish | source
 zoxide init fish | source
+
+function lazyg
+    if test (count $argv) -eq 0
+        echo "Please provide a commit name."
+        return 1
+    end
+
+    git add .
+    git commit -m $argv
+    git push origin main
+end
+
+function mkdirg
+    if test (count $argv) -eq 0
+        echo "Please provide a directory name."
+        return 1
+    end
+
+    mkdir -p $argv
+    cd $argv
+    ls
+end
+
+function cd
+    builtin cd $argv
+    ls
+end
+
+alias vim='nvim'
+alias c='clear'
+alias yap='sudo pacman -Syu --noconfirm'
+
+alias yoo='sudo pacman -S --needed --noconfirm'
+alias noo='sudo pacman -Rns'
+
+alias web='cd /var/www/html'
+alias da='date "+%Y-%m-%d %A %T %Z"'
+
+# Alias's to modified commands
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='trash -v'
+alias mkdir='mkdir -p'
+alias ps='ps auxf'
+alias ping='ping -c 10'
+alias less='less -R'
+alias vi='nvim'
+alias vim='nvim'
+alias vis='nvim "+set si"'
+
+# Remove a directory and all files
+alias rmd='/bin/rm  --recursive --force --verbose '
+
+
+# Search running processes
+alias p="ps aux | grep "
+alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
+
+# Search files in the current folder
+alias f="find . | grep "
+
+
+# Alias's for archives
+alias mktar='tar -cvf'
+alias mkbz2='tar -cvjf'
+alias mkgz='tar -cvzf'
+alias untar='tar -xvf'
+alias unbz2='tar -xvjf'
+alias ungz='tar -xvzf'
+
+

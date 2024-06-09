@@ -4,8 +4,7 @@
 prompt_continue() {
   read -p "Press any key to continue or 'n' to cancel: " -n 1 -r
   echo
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
     return 1
   fi
   return 0
@@ -79,7 +78,7 @@ create_symlink "redshift" ".config/redshift"
 create_symlink "starship.toml" ".config/starship.toml"
 create_symlink "rofi" ".config/rofi"
 create_symlink "fish" ".config/fish"
-create_symlink ".zshrc" ".zshrc"
+# create_symlink ".zshrc" ".zshrc"
 
 # Finish marker with green color
 printf "\e[32mSetup complete!\e[0m\n"
