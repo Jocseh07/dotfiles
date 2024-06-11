@@ -1,6 +1,5 @@
 alias vim='nvim'
 alias vi='nvim'
-alias yap='sudo pacman -Syu --noconfirm'
 
 alias fix-key='sudo rm /var/lib/pacman/sync/* && sudo rm -rf /etc/pacman.d/gnupg/* && sudo pacman-key --init && sudo pacman-key --populate && sudo pacman -Sy --noconfirm archlinux-keyring && sudo pacman --noconfirm -Su'
 alias update-arch='sudo pacman'
@@ -30,8 +29,10 @@ alias stat='git status'  # 'status' is protected name so using 'stat' instead
 alias tag='git tag'
 alias newtag='git tag -a'
 
-alias yoo='sudo pacman -S --needed --noconfirm'
-alias noo='sudo pacman -Rns'
+alias yoo='sudo dnf5 install'
+# alias yoo='sudo pacman -S --needed --noconfirm'
+alias noo='sudo dnf5 remove'
+# alias noo='sudo pacman -Rns'
 alias myclone='git clone '
 
 if test -f /home/muturi/.autojump/share/autojump/autojump.fish; . /home/muturi/.autojump/share/autojump/autojump.fish; end
@@ -47,7 +48,7 @@ function lazyg
 
     git add .
     git commit -m $argv
-    git push origin main
+    git push
 end
 
 function mkdirg
@@ -68,10 +69,9 @@ end
 
 alias vim='nvim'
 alias c='clear'
-alias yap='sudo pacman -Syu --noconfirm'
+alias yap='sudo dnf5 update'
+# alias yap='sudo pacman -Syu --noconfirm'
 
-alias yoo='sudo pacman -S --needed --noconfirm'
-alias noo='sudo pacman -Rns'
 
 alias web='cd /var/www/html'
 alias da='date "+%Y-%m-%d %A %T %Z"'
@@ -108,4 +108,17 @@ alias untar='tar -xvf'
 alias unbz2='tar -xvjf'
 alias ungz='tar -xvzf'
 
+function sudo
+    if test "$argv[1]" = "dnf"
+        set argv[1] dnf5
+    end
+    command sudo $argv
+end
 
+alias pm="pnpm"
+# pnpm
+set -gx PNPM_HOME "/home/muturi/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

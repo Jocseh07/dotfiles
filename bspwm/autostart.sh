@@ -1,9 +1,8 @@
 #!/bin/bash
 
 function run {
-  if ! pgrep $1 ;
-  then
-    $@&
+  if ! pgrep $1; then
+    $@ &
   fi
 }
 
@@ -17,14 +16,13 @@ function run {
 
 xrandr --output eDP-1 --primary --mode 1920x1080 &
 
-
 $HOME/.config/polybar/launch.sh &
 
 run sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc &
 
 #Some ways to set your wallpaper besides variety or nitrogen
 #feh --bg-scale ~/.config/bspwm/wall.png &
-feh --bg-fill /usr/share/backgrounds/arco/koi-fishes-1920x1080.png &
+# feh --bg-fill /usr/share/backgrounds/arco/koi-fishes-1920x1080.png &
 #wallpaper for other Arch based systems
 #feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
 #feh --randomize --bg-fill ~/Dropbox/Apps/Desktoppr/*
@@ -36,9 +34,10 @@ run nm-applet &
 # run pamac-tray &
 run xfce4-power-manager &
 numlockx on &
-blueberry-tray &
-run xdman-beta &
+xinput disable 14 &
+blueman-applet &
+run xdman &
 run redshift &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
-#nitrogen --restore &
+nitrogen --restore &

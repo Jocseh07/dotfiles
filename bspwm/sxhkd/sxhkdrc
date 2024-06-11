@@ -33,7 +33,7 @@ super + y
 
 # unhide window
 super + r
-	bspc node $(bspc query -N -n .hidden -d focused | tail -1) --flag hidden=off
+	bspc node $(bspc query -N -d focused -n .hidden.window | head -1) --flag hidden=off
 	# ~/github/dotfiles/bspwm/sxhkd/bspwinmask
 	# bspc node focused -g hidden=on
 
@@ -285,8 +285,6 @@ super + {_,shift + }a
 
 #Switch here between qwerty and azerty or make new one
 #Focus selected desktop FOR QWERTY KEYBOARDS
-super + {1-9,0}
-	bspc desktop -f '^{1-9,10}'
 
 #Focus selected desktop	FOR BELGIAN AZERTY KEYBOARDS
 #super + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
@@ -300,9 +298,8 @@ super + {1-9,0}
 
 #Switch here between qwerty and azerty or make new one
 #Move window to selected desktop FOR QWERTY KEYBOARDS
-super + shift + {1-9,0}
-    id=$(bspc query -N -n); bspc node -d ^{1-9,10}; bspc node -f ${id}}
-
+super + {_,shift + }{1-8}
+	bspc {desktop -f,node -d} '^{1-8}' '--follow'
 #Move window to selected desktop FOR AZERTY KEYBOARDS
 #super + shift + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
 #    id=$(bspc query -N -n); bspc node -d ^{1-9,10}; bspc node -f ${id}}
