@@ -71,12 +71,12 @@ create_symlink() {
 }
 
 create_symlink "alacritty" ".config/alacritty"
-create_symlink "bspwm" ".config/bspwm"
-create_symlink "nvim" ".config/nvim"
-create_symlink "polybar" ".config/polybar"
+# create_symlink "bspwm" ".config/bspwm"
+# create_symlink "nvim" ".config/nvim"
+# create_symlink "polybar" ".config/polybar"
 create_symlink "redshift" ".config/redshift"
 create_symlink "starship.toml" ".config/starship.toml"
-create_symlink "rofi" ".config/rofi"
+# create_symlink "rofi" ".config/rofi"
 create_symlink "fish" ".config/fish"
 # create_symlink ".zshrc" ".zshrc"
 

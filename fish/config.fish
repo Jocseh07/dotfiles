@@ -29,10 +29,8 @@ alias stat='git status'  # 'status' is protected name so using 'stat' instead
 alias tag='git tag'
 alias newtag='git tag -a'
 
-alias yoo='sudo dnf5 install'
-# alias yoo='sudo pacman -S --needed --noconfirm'
-alias noo='sudo dnf5 remove'
-# alias noo='sudo pacman -Rns'
+alias yoo='sudo pacman -S --needed --noconfirm'
+alias noo='sudo pacman -Rns'
 alias myclone='git clone '
 
 if test -f /home/muturi/.autojump/share/autojump/autojump.fish; . /home/muturi/.autojump/share/autojump/autojump.fish; end
@@ -47,7 +45,7 @@ function lazyg
     end
 
     git add .
-    git commit -m $argv
+    git commit -m "$argv"
     git push
 end
 
@@ -69,8 +67,7 @@ end
 
 alias vim='nvim'
 alias c='clear'
-alias yap='sudo dnf5 update'
-# alias yap='sudo pacman -Syu --noconfirm'
+alias yap='sudo pacman -Syu --noconfirm'
 
 
 alias web='cd /var/www/html'
@@ -122,3 +119,6 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+#
+
+alias zed="zeditor --wait"
