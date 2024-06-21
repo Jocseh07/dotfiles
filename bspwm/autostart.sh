@@ -27,14 +27,14 @@ run sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc &
 #feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
 #feh --randomize --bg-fill ~/Dropbox/Apps/Desktoppr/*
 
-dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
+# dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 xsetroot -cursor_name left_ptr &
 
 run nm-applet &
 # run pamac-tray &
 # run xfce4-power-manager &
 numlockx on &
-blueman-applet &
+blueberry &
 run xdman-beta &
 run redshift &
 /usr/lib/polkit-kde-authentication-agent-1 &

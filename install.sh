@@ -79,6 +79,7 @@ create_symlink "starship.toml" ".config/starship.toml"
 create_symlink "rofi" ".config/rofi"
 create_symlink "fish" ".config/fish"
 # create_symlink ".zshrc" ".zshrc"
+# create_symlink ".bashrc" ".bashrc"
 
 # Finish marker with green color
 printf "\e[32mSetup complete!\e[0m\n"

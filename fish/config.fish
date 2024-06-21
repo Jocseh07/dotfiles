@@ -1,3 +1,6 @@
+source $HOME/github/dotfiles/fish/conf.d/done.fish
+source $HOME/github/dotfiles/fish/conf.d/cachyos-config.fish
+
 alias vim='nvim'
 alias vi='nvim'
 
@@ -13,7 +16,6 @@ alias ls='eza -l --color=always --group-directories-first'  # long format
 alias lt='eza -aT --color=always --group-directories-first' # tree listing
 alias l.='eza -a | egrep "^\."'
 
-alias more='git add . && git commit -m "more changes" && git push'
 
 # git
 alias addup='git add -u'
@@ -31,12 +33,10 @@ alias newtag='git tag -a'
 
 alias yoo='sudo pacman -S --needed --noconfirm'
 alias noo='sudo pacman -Rns'
-alias myclone='git clone '
-
-if test -f /home/muturi/.autojump/share/autojump/autojump.fish; . /home/muturi/.autojump/share/autojump/autojump.fish; end
+alias yap='sudo pacman -Syu'
 
 starship init fish | source
-zoxide init fish | source
+zoxide init fish --cmd j | source
 
 function lazyg
     if test (count $argv) -eq 0
@@ -45,7 +45,7 @@ function lazyg
     end
 
     git add .
-    git commit -m "$argv"
+    git commit -m $argv
     git push
 end
 
@@ -97,28 +97,6 @@ alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 alias f="find . | grep "
 
 
-# Alias's for archives
-alias mktar='tar -cvf'
-alias mkbz2='tar -cvjf'
-alias mkgz='tar -cvzf'
-alias untar='tar -xvf'
-alias unbz2='tar -xvjf'
-alias ungz='tar -xvzf'
-
-function sudo
-    if test "$argv[1]" = "dnf"
-        set argv[1] dnf5
-    end
-    command sudo $argv
-end
-
 alias pm="pnpm"
-# pnpm
-set -gx PNPM_HOME "/home/muturi/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
-#
 
-alias zed="zeditor --wait"
+alias zed="zeditor"
