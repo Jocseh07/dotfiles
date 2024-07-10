@@ -14,7 +14,7 @@ function run {
 #autorandr horizontal
 # xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60.00 --output LVDS1 --off &
 
-xrandr --output eDP-1 --primary --mode 2048x1152 --scale 1x1 &
+xrandr --output eDP-1 --primary --mode 1920x1080 --scale 1x1 &
 
 $HOME/.config/polybar/launch.sh &
 
