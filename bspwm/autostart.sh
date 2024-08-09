@@ -34,9 +34,10 @@ run nm-applet &
 # run pamac-tray &
 # run xfce4-power-manager &
 numlockx on &
-blueberry &
-run xdman-beta &
+blueman-applet &
+run xdman &
 run redshift &
-/usr/lib/polkit-kde-authentication-agent-1 &
+# /usr/lib/polkit-kde-authentication-agent-1 &
+/usr/lib/polkit-1/polkitd &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 nitrogen --restore &
