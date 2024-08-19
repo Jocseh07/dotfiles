@@ -14,7 +14,7 @@ function run {
 #autorandr horizontal
 # xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60.00 --output LVDS1 --off &
 
-xrandr --output eDP-1 --primary --mode 1920x1080 --scale 1x1 &
+xrandr --output eDP-1 --primary --mode 2048x1152 --scale 1x1 &
 
 $HOME/.config/polybar/launch.sh &
 
@@ -32,12 +32,13 @@ xsetroot -cursor_name left_ptr &
 
 run nm-applet &
 # run pamac-tray &
-# run xfce4-power-manager &
+run xfce4-power-manager &
 numlockx on &
-blueman-applet &
-run xdman &
+blueberry &
+run xdman-beta &
 run redshift &
 # /usr/lib/polkit-kde-authentication-agent-1 &
-/usr/lib/polkit-1/polkitd &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 nitrogen --restore &
