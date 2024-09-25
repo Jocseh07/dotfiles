@@ -78,6 +78,7 @@ create_symlink "redshift" ".config/redshift"
 create_symlink "starship.toml" ".config/starship.toml"
 create_symlink "rofi" ".config/rofi"
 create_symlink "fish" ".config/fish"
+create_symlink "i3" ".config/i3"
 # create_symlink ".zshrc" ".zshrc"
 # create_symlink ".bashrc" ".bashrc"
 
