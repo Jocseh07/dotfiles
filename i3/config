@@ -31,7 +31,7 @@ set $right l
 ################# Single and Dual screen
 
 # current displays
-exec --no-startup-id xrandr --output eDP-1 --primary --mode 2048x1152 --scale 1x1 &
+exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --scale 1x1 &
 
 
 # setting variables for later use

@@ -70,8 +70,8 @@ create_symlink() {
   printf "\e[32mCompleted creating symbolic link from %s to %s\e[0m\n" "$source_dir" "$target_dir"
 }
 
-create_symlink "alacritty" ".config/alacritty"
-create_symlink "bspwm" ".config/bspwm"
+# create_symlink "alacritty" ".config/alacritty"
+# create_symlink "bspwm" ".config/bspwm"
 # create_symlink "nvim" ".config/nvim"
 create_symlink "polybar" ".config/polybar"
 create_symlink "redshift" ".config/redshift"

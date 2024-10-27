@@ -34,7 +34,7 @@ run nm-applet &
 # run pamac-tray &
 run xfce4-power-manager &
 numlockx on &
-blueberry-tray &
+blueman-tray &
 run xdman-beta &
 run redshift &
 # /usr/lib/polkit-kde-authentication-agent-1 &
