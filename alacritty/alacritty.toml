@@ -1,4 +1,4 @@
-import = [
+general.import = [
   "/usr/lib/node_modules/alacritty-themes/themes/Base16-Default-Dark.toml"
 ]
 
@@ -6,7 +6,7 @@ import = [
 TERM = "xterm-256color"
 
 [font]
-size = 12
+size = 8
 
   [font.bold]
   family = "JetBrainsMono Nerd Font"

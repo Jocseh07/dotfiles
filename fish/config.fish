@@ -33,14 +33,14 @@ alias stat='git status'  # 'status' is protected name so using 'stat' instead
 alias tag='git tag'
 alias newtag='git tag -a'
 
-# alias yoo='sudo pacman -S --needed --noconfirm'
-# alias noo='sudo pacman -Rns'
-# alias yap='paru -Syu --noconfirm'
+alias yoo='sudo pacman -S --needed --noconfirm'
+alias noo='sudo pacman -Rns'
+alias yap='paru -Syu --noconfirm'
 
 
-alias yoo='sudo dnf5 install '
-alias noo='sudo dnf5 remove '
-alias yap='sudo dnf5 update '
+# alias yoo='sudo dnf5 install '
+# alias noo='sudo dnf5 remove '
+# alias yap='sudo dnf5 update '
 
 starship init fish | source
 zoxide init fish --cmd j | source
