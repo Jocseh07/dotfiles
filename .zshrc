@@ -132,7 +132,22 @@ alias yoo='sudo pacman -S --needed --noconfirm'
 alias noo='sudo pacman -Rns'
 alias yap='paru -Syu --noconfirm'
 
+alias shad='pnpx shadcn@latest add '
+alias pm= 'pnpm'
+
+alias pma='pnpm add '
+alias pmu='pnpm update --latest'
+alias pmr='pnpm remove'
+
 [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 source /usr/share/nvm/nvm.sh
 source /usr/share/nvm/bash_completion
 source /usr/share/nvm/install-nvm-exec
+
+# pnpm
+export PNPM_HOME="/home/muturi/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
