@@ -14,7 +14,9 @@ function run {
 #autorandr horizontal
 # xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60.00 --output LVDS1 --off &
 
-xrandr --output eDP-1 --primary --mode 2048x1152 --scale 1x1 &
+xrandr --output eDP-1 --primary --mode 2560x1440 --rate 240 --scale 1x1 &
+# xrandr --output HDMI-1-0 --noprimary --mode 1366x768 --rate 60 --scale 1x1 &
+xrandr --output HDMI-1-0  --mode 1366x768 --rate 60 --scale 1x1 --right-of eDP-1 &
 
 $HOME/.config/polybar/launch.sh &
 
@@ -37,7 +39,7 @@ numlockx on &
 blueberry-tray &
 run xdman-beta &
 run redshift &
-# /usr/lib/polkit-kde-authentication-agent-1 &
+/usr/lib/polkit-kde-authentication-agent-1 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 /usr/lib/xfce4/notifyd/xfce4-notifyd &

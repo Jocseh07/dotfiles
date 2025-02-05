@@ -176,9 +176,13 @@ alias stat='git status'  # 'status' is protected name so using 'stat' instead
 alias tag='git tag'
 alias newtag='git tag -a'
 
-alias yoo='sudo pacman -S --needed --noconfirm'
-alias noo='sudo pacman -Rns'
-alias yap='paru -Syu --noconfirm'
+# alias yoo='sudo pacman -S --needed --noconfirm'
+# alias noo='sudo pacman -Rns'
+# alias yap='paru -Syu --noconfirm'
+
+alias yoo='sudo dnf install'
+alias noo='sudo dnf remove'
+alias yap='sudo dnf upgrade'
 
 alias shad='pnpx shadcn@latest add '
 alias pm= 'pnpm'

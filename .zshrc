@@ -132,12 +132,20 @@ alias yoo='sudo pacman -S --needed --noconfirm'
 alias noo='sudo pacman -Rns'
 alias yap='paru -Syu --noconfirm'
 
+# alias yoo='sudo dnf install'
+# alias noo='sudo dnf remove'
+# alias yap='sudo dnf upgrade'
+
 alias shad='pnpx shadcn@latest add '
 alias pm= 'pnpm'
 
 alias pma='pnpm add '
+alias pmad='pnpm add -D'
 alias pmu='pnpm update --latest'
 alias pmr='pnpm remove'
+alias pm='pnpm '
+alias pmd='pnpm dev'
+alias pmi='pnpm install '
 
 [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 source /usr/share/nvm/nvm.sh
@@ -151,3 +159,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+export PATH=$HOME/.local/bin:$PATH
