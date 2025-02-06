@@ -14,9 +14,11 @@ function run {
 #autorandr horizontal
 # xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60.00 --output LVDS1 --off &
 
-xrandr --output eDP-1 --primary --mode 2560x1440 --rate 240 --scale 1x1 &
+xrandr --output eDP-1 --primary --mode 2560x1440 --rate 240 --scale 1x1 --output HDMI-1-0  --mode 1920x1080 --rate 60 --scale 1x1 --right-of eDP-1 &
+# xrandr --output eDP-1 --primary --mode 2560x1440 --rate 240 --scale 1x1 &
+# xrandr --output HDMI-1-0  --mode 1920x1080 --rate 60 --scale 1x1 --right-of eDP-1 &
+# xrandr --output HDMI-1-0  --mode 1366x768 --rate 60 --scale 1x1 --right-of eDP-1 &
 # xrandr --output HDMI-1-0 --noprimary --mode 1366x768 --rate 60 --scale 1x1 &
-xrandr --output HDMI-1-0  --mode 1366x768 --rate 60 --scale 1x1 --right-of eDP-1 &
 
 $HOME/.config/polybar/launch.sh &
 

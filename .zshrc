@@ -160,3 +160,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 export PATH=$HOME/.local/bin:$PATH
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/muturi/.lmstudio/bin"
