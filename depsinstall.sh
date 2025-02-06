@@ -23,6 +23,10 @@ sudo pacman -S --needed \
     zoxide \
     zsh \
     xdman-beta-bin \
+    brightnessctl \
+    google-chrome \
+    visual-studio-code-bin \
+    slack-desktop \
     bat \
     fd \
     lsd \
@@ -35,8 +39,14 @@ sudo pacman -S --needed \
     npm \
     redshift \
     nitrogen 
-    
+
 check_status "Package installation"
+
+sudo pacman -R firefox sofirem-git
+    
+check_status "Package removal"
+
+paru cursor-bin
 
 # Install Oh My Zsh
 echo "Installing Oh My Zsh..."
